@@ -11,6 +11,7 @@ function Button({
     outline = false,
     primary = false,
     children,
+    className,
     onClick,
     leftIcon,
     rightIcon,
@@ -31,6 +32,7 @@ function Button({
     }
 
     const classes = cx('wrapper', {
+        [className]: className,
         text,
         outline,
         primary,
