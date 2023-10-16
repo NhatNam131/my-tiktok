@@ -1,10 +1,10 @@
 @import 'normalize.css';
-@import url(https://fonts.gstatic.com/s/ibmplexsans/v19/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRce_fuNmo.woff2);
+@import url(https://fonts.gstatic.com/s/ibmplexsans/v19/zYXgKVElMYYaJe8bpLHnCwDKhd7eFb5N.woff2);
 
 :root {
     --primary: rgba(254, 44, 85, 1);
     --search: rgba(22, 24, 35, 1);
-    --text-color-black: rgba(22, 24, 35, 1);
+    --text-color-black: rgba(22, 24, 35, 0.6);
     --white: rgba(255, 255, 255, 1);
 
     //Default layout
@@ -23,7 +23,8 @@ header {
 }
 
 body {
-    font-family: 'IBM Plex Sans';
+    font-family: 'IBM Plex Sans', Arial, Tahoma, sans-serif;
+    font-style: normal;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -40,4 +41,25 @@ input,
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+
+// Custom tippy tooltip
+body {
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+        color: rgb(255, 255, 255);
+        border-radius: 8px;
+        line-height: 15px;
+        padding: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-box[data-placement^='bottom'] .tippy-arrow::before {
+        top: -8px;
+    }
 }

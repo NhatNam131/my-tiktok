@@ -110,6 +110,13 @@
 .laptop {
     font-size: 25px;
     background-color: transparent;
+    margin-left: 16px;
+}
+
+// Actions
+.actions {
+    display: flex;
+    align-items: center;
 }
 
 .more-btn {
@@ -118,4 +125,21 @@
     font-size: 20px;
     cursor: pointer;
     background-color: transparent;
+}
+
+.action-btn {
+    cursor: pointer;
+    color: rgba(22, 24, 35, 1);
+    font-size: 1.4rem;
+    background-color: transparent;
+    padding: 4px 12px;
+}
+
+.user-avatar {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 12px;
 }
