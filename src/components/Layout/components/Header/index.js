@@ -4,15 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
-    faPlus,
-    faLaptopFile,
     faEllipsisVertical,
     faEarthAsia,
     faSort,
     faCircleDollarToSlot,
     faArrowRightFromBracket,
     faGear,
+    faLaptop,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Tippy from '@tippyjs/react';
@@ -25,15 +23,9 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 
-import {
-    faMoon,
-    faCirclePlay,
-    faCircleQuestion,
-    faPaperPlane,
-    faMessage,
-    faUser,
-    faBookmark,
-} from '@fortawesome/free-regular-svg-icons';
+import { faMoon, faCirclePlay, faCircleQuestion, faUser, faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { AppForPCIcon, MessageIcon, NotifycationIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 
 const cx = classNames.bind(styles);
 
@@ -142,7 +134,7 @@ function Header() {
                         </button>
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -150,37 +142,72 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                            <Button text leftIcon={<UploadIcon />}>
                                 Tải lên
                             </Button>
-                            <button className={cx('action-btn', 'laptop')}>
-                                <FontAwesomeIcon icon={faLaptopFile} />
-                            </button>
+                            <HeadlessTippy
+                                interactive
+                                offset={[-42, 19]}
+                                delay={[0, 500]}
+                                render={(attrs) => (
+                                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
+                                        <PopperWrapper>
+                                            <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
+                                            <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
+                                            <Button className={cx('download-btn')} primary>
+                                                Tải về
+                                            </Button>
+                                        </PopperWrapper>
+                                    </div>
+                                )}
+                            >
+                                <button className={cx('action-btn', 'laptop')}>
+                                    <AppForPCIcon />
+                                </button>
+                            </HeadlessTippy>
                             <Tippy content="Tin nhắn" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                             <Tippy content="Hộp thư" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                <button className={cx('action-btn', 'notifycation-btn')}>
+                                    <NotifycationIcon />
+                                    <span className={cx('notifycation')}>10</span>
                                 </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                            <Button text leftIcon={<UploadIcon />}>
                                 Tải lên
                             </Button>
                             <Button primary>Đăng nhập</Button>
-                            <Button>
-                                <FontAwesomeIcon icon={faLaptopFile} />
-                            </Button>
+                            <HeadlessTippy
+                                delay={[0, 500]}
+                                interactive
+                                offset={[-42, 19]}
+                                render={(attrs) => (
+                                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
+                                        <PopperWrapper>
+                                            <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
+                                            <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
+                                            <Button className={cx('download-btn')} primary>
+                                                Tải về
+                                            </Button>
+                                        </PopperWrapper>
+                                    </div>
+                                )}
+                            >
+                                <button className={cx('action-btn', 'laptop')}>
+                                    <AppForPCIcon />
+                                </button>
+                            </HeadlessTippy>
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/4/29/photo-12-1682807977557298147398.png"
                                 alt="Nguyễn Nhất Nam"
