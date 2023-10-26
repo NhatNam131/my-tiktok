@@ -7,22 +7,21 @@ import {
     faCircleDollarToSlot,
     faArrowRightFromBracket,
     faGear,
-    faLaptop,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { faMoon, faCirclePlay, faCircleQuestion, faUser, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Link } from 'react-router-dom';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-
-import { faMoon, faCirclePlay, faCircleQuestion, faUser, faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { AppForPCIcon, MessageIcon, NotifycationIcon, UploadIcon } from '~/components/Icons';
+import routesConfig from '~/config/routes';
+import { MessageIcon, NotifycationIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '../Search';
+import DownloadApp from '~/components/Popper/Model/Download';
 
 const cx = classNames.bind(styles);
 
@@ -100,7 +99,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
                 <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -108,26 +109,7 @@ function Header() {
                             <Button text leftIcon={<UploadIcon />}>
                                 Tải lên
                             </Button>
-                            <HeadlessTippy
-                                interactive
-                                offset={[-42, 19]}
-                                delay={[0, 500]}
-                                render={(attrs) => (
-                                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
-                                        <PopperWrapper>
-                                            <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
-                                            <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
-                                            <Button className={cx('download-btn')} primary>
-                                                Tải về
-                                            </Button>
-                                        </PopperWrapper>
-                                    </div>
-                                )}
-                            >
-                                <button className={cx('action-btn', 'laptop')}>
-                                    <AppForPCIcon />
-                                </button>
-                            </HeadlessTippy>
+                            <DownloadApp />
                             <Tippy content="Tin nhắn" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
@@ -146,26 +128,7 @@ function Header() {
                                 Tải lên
                             </Button>
                             <Button primary>Đăng nhập</Button>
-                            <HeadlessTippy
-                                delay={[0, 500]}
-                                interactive
-                                offset={[-42, 19]}
-                                render={(attrs) => (
-                                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
-                                        <PopperWrapper>
-                                            <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
-                                            <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
-                                            <Button className={cx('download-btn')} primary>
-                                                Tải về
-                                            </Button>
-                                        </PopperWrapper>
-                                    </div>
-                                )}
-                            >
-                                <button className={cx('action-btn', 'laptop')}>
-                                    <AppForPCIcon />
-                                </button>
-                            </HeadlessTippy>
+                            <DownloadApp />
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
