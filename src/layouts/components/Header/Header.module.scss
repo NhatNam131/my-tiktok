@@ -1,8 +1,12 @@
 .wrapper {
-    height: var(--default-layout-header-height);
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    z-index: 10;
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    height: var(--default-layout-header-height);
+    background-color: var(--white);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
 }
 
 .inner {

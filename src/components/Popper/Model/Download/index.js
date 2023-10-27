@@ -13,27 +13,31 @@ const cx = classNames.bind(styles);
 
 function DownloadApp() {
     return (
-        <HeadlessTippy
-            interactive
-            offset={[-42, 19]}
-            delay={[0, 500]}
-            hideOnClick={false}
-            render={(attrs) => (
-                <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
-                        <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
-                        <Button className={cx('download-btn')} primary>
-                            Tải về
-                        </Button>
-                    </PopperWrapper>
-                </div>
-            )}
-        >
-            <button className={cx('action-btn', 'laptop')}>
-                <AppForPCIcon />
-            </button>
-        </HeadlessTippy>
+        // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
+        <div>
+            <HeadlessTippy
+                interactive
+                offset={[-42, 19]}
+                delay={[0, 500]}
+                hideOnClick={false}
+                placement="bottom"
+                render={(attrs) => (
+                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
+                            <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
+                            <Button className={cx('download-btn')} primary>
+                                Tải về
+                            </Button>
+                        </PopperWrapper>
+                    </div>
+                )}
+            >
+                <button className={cx('action-btn', 'laptop')}>
+                    <AppForPCIcon />
+                </button>
+            </HeadlessTippy>
+        </div>
     );
 }
 
