@@ -11,7 +11,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
 import { useDebounce } from '~/hook';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -60,6 +60,7 @@ function Search() {
     };
 
     return (
+        // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div className={cx('wrapper')}>
             <HeadlessTippy
                 interactive
