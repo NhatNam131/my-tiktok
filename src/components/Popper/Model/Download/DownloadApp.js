@@ -1,10 +1,9 @@
 import classNames from 'classnames/bind';
-import styles from './Download.module.scss';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HeadlessTippy from '@tippyjs/react/headless';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import Tippy from '@tippyjs/react/headless';
 
+import styles from './Download.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Button from '~/components/Button/Button';
 import { AppForPCIcon } from '~/components/Icons/Icons';
@@ -15,7 +14,7 @@ function DownloadApp() {
     return (
         // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div>
-            <HeadlessTippy
+            <Tippy
                 interactive
                 offset={[-42, 19]}
                 delay={[0, 500]}
@@ -36,7 +35,7 @@ function DownloadApp() {
                 <button className={cx('action-btn', 'laptop')}>
                     <AppForPCIcon />
                 </button>
-            </HeadlessTippy>
+            </Tippy>
         </div>
     );
 }

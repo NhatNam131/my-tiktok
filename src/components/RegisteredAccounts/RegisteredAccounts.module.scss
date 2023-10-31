@@ -1,0 +1,76 @@
+.label {
+    margin: 8px 8px 0 8px;
+    padding-bottom: 8px;
+    padding-top: 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(22, 24, 35, 0.6);
+    border-top: 1px solid rgba(22, 24, 35, 0.1);
+}
+
+.account-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.nickname {
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.check {
+    font-size: 1rem;
+    color: #20d5ec;
+    margin-left: 4px;
+}
+
+.name {
+    font-size: 0.8rem;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.more-btn {
+    cursor: pointer;
+    margin: 8px 8px 0 8px;
+    padding-bottom: 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+    border-bottom: 1px solid rgba(22, 24, 35, 0.1);
+}
+
+.effect-btn {
+    margin: 16px 16px 8px 8px;
+    width: 210px;
+    height: 52px;
+    background: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/045b2fc7c278b9a30dd0.png')
+        no-repeat scroll 0 0 transparent;
+    background-size: 210px 52px;
+    border: none;
+    font-weight: 600;
+
+    &:hover {
+        transition: transform linear 0.1s;
+        transform: translateY(-5px);
+    }
+}

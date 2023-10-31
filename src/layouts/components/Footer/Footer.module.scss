@@ -1,0 +1,43 @@
+.wrapper {
+    margin: 20px 20px 0 8px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+}
+
+.more-btn {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border: none;
+    color: rgba(22, 24, 35, 0.5);
+    margin: 15px 0 0 0;
+}
+
+.more-popper {
+    cursor: pointer;
+    width: fit-content;
+    max-width: 200px;
+    margin-left: 10px;
+}
+
+.more-btn-content {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    &:hover {
+        color: var(--primary);
+    }
+}
