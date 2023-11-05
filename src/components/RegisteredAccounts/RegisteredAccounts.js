@@ -9,17 +9,14 @@ import styles from './RegisteredAccounts.module.scss';
 
 const cx = classNames.bind(styles);
 
-function RegisteredAccounts({ label }) {
+function RegisteredAccounts({ label, data = [] }) {
+    console.log(data);
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-
+            {data.map((account) => (
+                <AccountItem key={account.id} data={account} />
+            ))}
             <p className={cx('more-btn')}>Xem thêm</p>
 
             <Button className={cx('effect-btn')} text leftIcon={<FontAwesomeIcon icon={faDungeon} />}>
@@ -31,6 +28,7 @@ function RegisteredAccounts({ label }) {
 
 RegisteredAccounts.propTypes = {
     label: PropTypes.string.isRequired,
+    data: PropTypes.array,
 };
 
 export default RegisteredAccounts;

@@ -1,5 +1,11 @@
 .wrapper {
+    flex-shrink: 0;
     width: 224px;
     min-height: 1000px;
     margin: 20px 0 0 8px;
+}
+
+.inner {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
