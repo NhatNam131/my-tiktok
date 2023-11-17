@@ -8,7 +8,6 @@ import {
     faArrowRightFromBracket,
     faGear,
 } from '@fortawesome/free-solid-svg-icons';
-
 import { faMoon, faCirclePlay, faCircleQuestion, faUser, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';

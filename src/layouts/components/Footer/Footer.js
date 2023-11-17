@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/svg-arrow.css';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -46,9 +46,9 @@ function Footer() {
 
                 {/* Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context. */}
                 <div>
-                    <Tippy interactive placement="top" offset={[-15, 10]} render={renderMoreButton}>
+                    <HeadlessTippy interactive placement="top" offset={[-15, 10]} render={renderMoreButton}>
                         <p className={cx('more-btn')}>Thêm</p>
-                    </Tippy>
+                    </HeadlessTippy>
                 </div>
 
                 <p className={cx('content')}>@2023 by NhatNam</p>

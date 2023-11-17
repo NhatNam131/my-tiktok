@@ -21,7 +21,6 @@ import * as userService from '~/services/userService';
 const cx = classNames.bind(styles);
 
 function Sidebar() {
-    // const [followingUsers, setFollowingUsers] = useState([]);
     const [suggestedUsers, setSuggestedUsers] = useState([]);
 
     useEffect(() => {

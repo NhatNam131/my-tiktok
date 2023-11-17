@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Button from '~/components/Button';
 import styles from './AccountPreview.module.scss';
+import Image from '~/components/Images/Images';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +13,7 @@ function AccountPreview({ data }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <img className={cx('avatar')} src={data.avatar} alt={data.nickname} />
+                <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
 
                 {data.is_followed ? (
                     <Button className={cx('following-btn')} outline>
@@ -31,7 +32,7 @@ function AccountPreview({ data }) {
                 </p>
                 <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>{data.followings_count} </strong>
+                    <strong className={cx('value')}>{data.followers_count} </strong>
                     <span className={cx('label')}>Người theo dõi</span>
                     <strong className={cx('value')}>{data.followers_count} </strong>
                     <span className={cx('label')}>Lượt thích</span>

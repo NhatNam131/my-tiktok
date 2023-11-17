@@ -1,0 +1,166 @@
+.wrapper {
+    width: 692px;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    flex-direction: row;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.left {
+    flex-direction: column;
+}
+
+.right {
+    margin: 0 12px;
+    flex-direction: column;
+}
+
+.avatar {
+    cursor: pointer;
+    margin-top: 6px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nickname {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color-black);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.check {
+    font-size: 1rem;
+    margin-left: 6px;
+    color: rgb(32, 213, 236);
+}
+
+.name {
+    cursor: context-menu;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 0.5;
+}
+
+.public-time {
+    margin-top: 8px;
+    text-align: center;
+    cursor: context-menu;
+    font-size: 0.9rem;
+}
+
+.follow-btn {
+    min-width: 96px;
+    height: 36px;
+    position: absolute;
+    top: 28px;
+    right: 0;
+}
+
+.description {
+    cursor: context-menu;
+    max-width: 450px;
+    margin: 2px 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.music {
+    cursor: pointer;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.music-icon {
+    font-size: 0.8rem;
+}
+
+.music-title {
+    font-size: 0.9rem;
+    margin-left: 6px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.interact-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-left: 15px;
+}
+
+.react-btn {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+.share {
+    overflow-y: auto;
+    max-height: 448px;
+}
+
+.share-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 11px 16px;
+    margin: 0 4px;
+    font-weight: 600;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.share-title {
+    margin: 0 8px;
+}
+
+.down-btn {
+    cursor: pointer;
+    margin: 6px 4px;
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.react-count {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: rgba(22, 24, 35, 0.75);
+}
