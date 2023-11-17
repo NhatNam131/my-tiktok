@@ -2,8 +2,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-// import PropTypes from 'prop-types';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './RegisteredAccounts.module.scss';
@@ -26,7 +25,7 @@ function AccountItem({ data }) {
     return (
         // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div>
-            <Tippy interactive placement="bottom-end" offset={[0, 0.5]} delay={[800, 0]} render={renderPreview}>
+            <HeadlessTippy interactive placement="bottom-end" offset={[0, 0.5]} delay={[800, 0]} render={renderPreview}>
                 <div className={cx('account-item')}>
                     <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
                     <div className={cx('item-info')}>
@@ -37,7 +36,7 @@ function AccountItem({ data }) {
                         <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                     </div>
                 </div>
-            </Tippy>
+            </HeadlessTippy>
         </div>
     );
 }

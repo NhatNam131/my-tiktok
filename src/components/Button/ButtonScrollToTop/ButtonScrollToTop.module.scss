@@ -1,0 +1,16 @@
+.on-top-btn {
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 8px 25px;
+    padding: 7px;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--primary);
+    scroll-behavior: smooth;
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+    }
+}

@@ -10,7 +10,6 @@ import styles from './RegisteredAccounts.module.scss';
 const cx = classNames.bind(styles);
 
 function RegisteredAccounts({ label, data = [] }) {
-    console.log(data);
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
