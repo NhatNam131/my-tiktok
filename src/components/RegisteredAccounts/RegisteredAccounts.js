@@ -1,9 +1,6 @@
-import { faDungeon } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 
-import Button from '../Button';
 import AccountItem from './AccountItem';
 import styles from './RegisteredAccounts.module.scss';
 
@@ -17,10 +14,6 @@ function RegisteredAccounts({ label, data = [] }) {
                 <AccountItem key={account.id} data={account} />
             ))}
             <p className={cx('more-btn')}>Xem thêm</p>
-
-            <Button className={cx('effect-btn')} text leftIcon={<FontAwesomeIcon icon={faDungeon} />}>
-                Tạo hiệu ứng
-            </Button>
         </div>
     );
 }

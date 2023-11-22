@@ -31,7 +31,7 @@ function Video({ src }) {
 }
 
 Video.propTypes = {
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
 };
 
 export default Video;

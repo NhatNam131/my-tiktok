@@ -15,3 +15,39 @@
         overflow-y: auto;
     }
 }
+
+.login-wrapper {
+    margin: 8px 8px;
+    padding: 20px 0 20px;
+    border-top: 1px solid rgba(22, 24, 35, 0.1);
+    border-bottom: 1px solid rgba(22, 24, 35, 0.1);
+}
+
+.login-content {
+    font-size: 1rem;
+    line-height: 21px;
+    color: rgba(22, 24, 35, 0.5);
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    width: 202px;
+    height: 52px;
+}
+
+.effect-btn {
+    margin: 8px 16px 8px 8px;
+    width: 202px;
+    height: 52px;
+    background: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/045b2fc7c278b9a30dd0.png')
+        no-repeat scroll 0 0 transparent;
+    background-size: 210px 52px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+
+    &:hover {
+        transition: transform linear 0.1s;
+        transform: translateY(-5px);
+    }
+}

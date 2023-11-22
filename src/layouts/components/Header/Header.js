@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,6 +22,8 @@ import { MessageIcon, NotifycationIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '../Search';
 import DownloadApp from '~/components/Popper/Model/Download/DownloadApp';
+import { ModalContext } from '~/components/ModalProvider';
+import { LoginContext } from '~/components/LoginProvider';
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +48,61 @@ const MENU_ITEM = [
                     code: 'vi',
                     title: 'Tiếng Việt (Việt Nam)',
                 },
+                {
+                    type: 'language',
+                    code: 'zh',
+                    title: 'Trung Quốc',
+                },
+                {
+                    type: 'language',
+                    code: 'ja',
+                    title: 'Nhật Bản',
+                },
+                {
+                    type: 'language',
+                    code: 'ko',
+                    title: 'Hàn Quốc',
+                },
+                {
+                    type: 'language',
+                    code: 'lo',
+                    title: 'Lào',
+                },
+                {
+                    type: 'language',
+                    code: 'la',
+                    title: 'Latin',
+                },
+                {
+                    type: 'language',
+                    code: 'pt',
+                    title: 'Bồ Đào Nha',
+                },
+                {
+                    type: 'language',
+                    code: 'es',
+                    title: 'Tây Ban Nha',
+                },
+                {
+                    type: 'language',
+                    code: 'sv',
+                    title: 'Thuỵ Điển',
+                },
+                {
+                    type: 'language',
+                    code: 'th',
+                    title: 'Thái Lan',
+                },
+                {
+                    type: 'language',
+                    code: 'tr',
+                    title: 'Thổ Nhĩ Kỳ',
+                },
+                {
+                    type: 'language',
+                    code: 'ru',
+                    title: 'Nga',
+                },
             ],
         },
     },
@@ -64,7 +122,8 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const contextModal = useContext(ModalContext);
+    const contextLogin = useContext(LoginContext);
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -103,7 +162,7 @@ function Header() {
                 </Link>
                 <Search />
                 <div className={cx('actions')}>
-                    {currentUser ? (
+                    {contextLogin.data ? (
                         <>
                             <Button text leftIcon={<UploadIcon />}>
                                 Tải lên
@@ -123,19 +182,21 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text leftIcon={<UploadIcon />}>
+                            <Button text leftIcon={<UploadIcon />} onClick={contextModal.handleShowModal}>
                                 Tải lên
                             </Button>
-                            <Button primary>Đăng nhập</Button>
+                            <Button className={cx('login-btn')} primary onClick={contextModal.handleShowModal}>
+                                Đăng nhập
+                            </Button>
                             <DownloadApp />
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
-                        {currentUser ? (
+                    <Menu items={contextLogin.data ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
+                        {contextLogin.data ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/4/29/photo-12-1682807977557298147398.png"
-                                alt="Nguyễn Nhất Nam"
+                                src={contextLogin.data.avatar}
+                                alt={contextLogin.data.nickname}
                             />
                         ) : (
                             <button className={cx('more-btn')}>
