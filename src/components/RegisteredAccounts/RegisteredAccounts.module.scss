@@ -51,27 +51,9 @@
 
 .more-btn {
     cursor: pointer;
-    margin: 8px 8px 0 8px;
+    margin: 8px 4px 0 8px;
     padding-bottom: 16px;
     font-weight: 700;
     font-size: 0.9rem;
     color: var(--primary);
-    border-bottom: 1px solid rgba(22, 24, 35, 0.1);
-}
-
-.effect-btn {
-    margin: 16px 16px 8px 8px;
-    width: 202px;
-    height: 52px;
-    background: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/045b2fc7c278b9a30dd0.png')
-        no-repeat scroll 0 0 transparent;
-    background-size: 210px 52px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-
-    &:hover {
-        transition: transform linear 0.1s;
-        transform: translateY(-5px);
-    }
 }
