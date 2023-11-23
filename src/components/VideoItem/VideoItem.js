@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCheckCircle, faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
@@ -5,8 +6,8 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Image from '~/components/Images/Images';
 import styles from './VideoItem.module.scss';
+import Image from '~/components/Images/Images';
 import Video from './CustomVideo';
 import Button from '../Button';
 import AccountPreview from '../RegisteredAccounts/AccountPreview';
@@ -26,11 +27,16 @@ import {
     TwitterIcon,
     WhatsAppIcon,
 } from '../Icons';
+import { LoginContext } from '../LoginProvider';
+import { ModalContext } from '../ModalProvider';
 
 const cx = classNames.bind(styles);
 
 function VideoItem({ data }) {
     require('moment/locale/vi');
+
+    const contextModal = useContext(ModalContext);
+    const contextLogin = useContext(LoginContext);
 
     const shareMenu = [
         {
@@ -164,9 +170,15 @@ function VideoItem({ data }) {
                                 : moment(data.published_at).format('MM-DD')
                         }`}
                     </div>
-                    <Button className={cx('follow-btn')} outline>
-                        Theo dõi
-                    </Button>
+                    {contextLogin.data ? (
+                        <Button className={cx('follow-btn')} outline>
+                            Theo dõi
+                        </Button>
+                    ) : (
+                        <Button className={cx('follow-btn')} outline onClick={contextModal.handleShowModal}>
+                            Theo dõi
+                        </Button>
+                    )}
                 </div>
                 <p className={cx('description')}>{data.description}</p>
                 <div className={cx('music')}>

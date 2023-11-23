@@ -1,0 +1,128 @@
+.wrapper {
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loading {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 50%;
+    right: 45%;
+    right: calc(var(--search-button-width) + 16px);
+    color: black;
+    transform: translateY(-50%);
+}
+
+.loading {
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 194px;
+    padding: 32px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 1px solid rgba(22, 24, 35, 0.03);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px;
+    animation: showLogoutForm ease 0.3s;
+}
+
+.close-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 8px;
+    padding: 8px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.title {
+    text-align: center;
+    width: 100%;
+    padding: 0px 32px;
+    word-wrap: break-word;
+    max-width: 400px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 32px;
+    color: rgb(22, 24, 35);
+}
+
+.wrapper-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 400px;
+}
+
+.cancel-btn {
+    width: 150px;
+    height: 45px;
+    margin: 16px 10px;
+    font-size: 1rem;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+.allow-btn {
+    width: 150px;
+    height: 45px;
+    margin: 16px 10px;
+    font-size: 1rem;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+@keyframes showLogoutForm {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hideLogoutForm {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}

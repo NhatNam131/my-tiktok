@@ -14,6 +14,10 @@
     &:hover {
         overflow-y: auto;
     }
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
 }
 
 .login-wrapper {
