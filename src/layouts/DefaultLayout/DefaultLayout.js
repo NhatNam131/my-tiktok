@@ -9,6 +9,7 @@ import { ModalContext } from '~/components/ModalProvider';
 import { LoginContext } from '~/components/LoginProvider';
 import { getCurrentUserService } from '~/services/userService';
 import MenuModalItem from '~/components/MenuModalItem';
+import LogOutPopup from '~/components/Popper/LogOutPopup/LogOutPopup';
 
 const cx = classNames.bind(styles);
 
@@ -34,11 +35,13 @@ function DefaultLayout({ children, data }) {
     return (
         <div className={cx('wrapper')}>
             <Header />
-            {contextLogin.isNotify && <span className={cx('notify')}>Đăng nhập thành công</span>}
+            {/* {contextModal.isLogout && <span className={cx('notify')}>Đăng xuất thành công</span>}
+            {contextLogin.isNotify && <span className={cx('notify')}>Đăng nhập thành công</span>} */}
             <div className={cx('container')}>
                 <Sidebar />
                 <div className={cx('content')}>{children}</div>
             </div>
+            {contextModal.activeLogOut && <LogOutPopup />}
             {contextModal.active && <MenuModalItem />}
         </div>
     );

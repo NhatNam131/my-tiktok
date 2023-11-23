@@ -11,3 +11,16 @@ export const login = async (email, password) => {
         console.log(error);
     }
 };
+
+export const logout = async () => {
+    try {
+        const res = await httpRequest.post('auth/logout', {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};

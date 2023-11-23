@@ -149,7 +149,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
             title: 'Đăng xuất',
-            to: '/logout',
+            to: '/',
             seperate: true,
         },
     ];
@@ -191,7 +191,7 @@ function Header() {
                             <DownloadApp />
                         </>
                     )}
-                    <Menu items={contextLogin.data ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
+                    <Menu items={!contextLogin.data ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
                         {contextLogin.data ? (
                             <Image
                                 className={cx('user-avatar')}
