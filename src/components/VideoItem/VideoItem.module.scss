@@ -126,9 +126,15 @@
     background-color: rgba(22, 24, 35, 0.06);
 }
 
-.share {
+.share-popper {
     overflow-y: auto;
-    max-height: 448px;
+    max-height: 350px;
+    height: 100%;
+    padding: 4px 0;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
 }
 
 .share-wrapper {

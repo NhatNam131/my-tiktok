@@ -109,7 +109,7 @@ const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Phản hồi và trợ giúp',
-        to: '/feedback',
+        to: '/',
     },
     {
         icon: <FontAwesomeIcon icon={faSort} />,
@@ -142,10 +142,10 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faCircleDollarToSlot} />,
             title: 'Nhận xu',
-            to: '/coin',
+            to: '/',
         },
         ...MENU_ITEM,
-        { icon: <FontAwesomeIcon icon={faGear} />, title: 'Cài đặt', to: '/setting' },
+        { icon: <FontAwesomeIcon icon={faGear} />, title: 'Cài đặt', to: '/' },
         {
             icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
             title: 'Đăng xuất',
