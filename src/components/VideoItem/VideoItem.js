@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext, useMemo } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCheckCircle, faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
@@ -38,71 +38,105 @@ function VideoItem({ data }) {
     const contextModal = useContext(ModalContext);
     const contextLogin = useContext(LoginContext);
 
-    const shareMenu = [
-        {
-            icon: <DipIcon />,
-            title: 'Nhúng',
-            to: '',
-        },
-        {
-            icon: <SendIcon />,
-            title: 'Gửi đến bạn bè',
-            to: '',
-        },
-        {
-            icon: <FacebookIcon />,
-            title: 'Chia sẻ với Facebook',
-            to: '',
-        },
-        {
-            icon: <WhatsAppIcon />,
-            title: 'Chia sẻ với WhatsApp',
-            to: '',
-        },
-        {
-            icon: <LinkIcon />,
-            title: 'Sao chép liên kết',
-        },
-    ];
+    const shareMenu = useMemo(
+        () => [
+            {
+                showMore: true,
+                contents: [
+                    {
+                        icon: <DipIcon />,
+                        title: 'Nhúng',
+                        to: '',
+                    },
+                    {
+                        icon: <SendIcon />,
+                        title: 'Gửi đến bạn bè',
+                        to: '',
+                    },
+                    {
+                        icon: <FacebookIcon />,
+                        title: 'Chia sẻ với Facebook',
+                        to: '',
+                    },
+                    {
+                        icon: <WhatsAppIcon />,
+                        title: 'Chia sẻ với WhatsApp',
+                        to: '',
+                    },
+                    {
+                        icon: <LinkIcon />,
+                        title: 'Sao chép liên kết',
+                    },
+                ],
+            },
+            {
+                contents: [
+                    {
+                        icon: <DipIcon />,
+                        title: 'Nhúng',
+                        to: '',
+                    },
+                    {
+                        icon: <SendIcon />,
+                        title: 'Gửi đến bạn bè',
+                        to: '',
+                    },
+                    {
+                        icon: <FacebookIcon />,
+                        title: 'Chia sẻ với Facebook',
+                        to: '',
+                    },
+                    {
+                        icon: <WhatsAppIcon />,
+                        title: 'Chia sẻ với WhatsApp',
+                        to: '',
+                    },
+                    {
+                        icon: <LinkIcon />,
+                        title: 'Sao chép liên kết',
+                    },
+                    {
+                        icon: <TwitterIcon />,
+                        title: 'Chia sẻ với Twitter',
+                        to: '',
+                    },
+                    {
+                        icon: <LinkedInIcon />,
+                        title: 'Chia sẻ với LinkedIn',
+                        to: '',
+                    },
+                    {
+                        icon: <RedditIcon />,
+                        title: 'Chia sẻ với Reddit',
+                        to: '',
+                    },
+                    {
+                        icon: <TelegramIcon />,
+                        title: 'Chia sẻ với Telegram',
+                        to: '',
+                    },
+                    {
+                        icon: <EmailIcon />,
+                        title: 'Chia sẻ với Email',
+                        to: '',
+                    },
+                    {
+                        icon: <LineIcon />,
+                        title: 'Chia sẻ với Line',
+                        to: '',
+                    },
+                    {
+                        icon: <PinterestIcon />,
+                        title: 'Chia sẻ với Pinterest',
+                        to: '',
+                    },
+                ],
+            },
+        ],
+        [],
+    );
 
-    const moreMenu = [
-        ...shareMenu,
-        {
-            icon: <TwitterIcon />,
-            title: 'Chia sẻ với Twitter',
-            to: '',
-        },
-        {
-            icon: <LinkedInIcon />,
-            title: 'Chia sẻ với LinkedIn',
-            to: '',
-        },
-        {
-            icon: <RedditIcon />,
-            title: 'Chia sẻ với Reddit',
-            to: '',
-        },
-        {
-            icon: <TelegramIcon />,
-            title: 'Chia sẻ với Telegram',
-            to: '',
-        },
-        {
-            icon: <EmailIcon />,
-            title: 'Chia sẻ với Email',
-            to: '',
-        },
-        {
-            icon: <LineIcon />,
-            title: 'Chia sẻ với Line',
-            to: '',
-        },
-        {
-            icon: <PinterestIcon />,
-            title: 'Chia sẻ với Pinterest',
-            to: '',
-        },
-    ];
+    const [formType, setFormType] = useState(shareMenu[0]);
 
     const renderAccountPreview = (props) => {
         return (
@@ -114,21 +148,29 @@ function VideoItem({ data }) {
         );
     };
 
-    const renderShareMoreButton = () => {};
+    const handleRenderMoreShareMenu = () => {
+        setFormType(shareMenu[1]);
+    };
+
+    const handleReset = () => {
+        setFormType(shareMenu[0]);
+    };
 
     const renderShareButton = (props) => {
         return (
-            <div className={cx('share')} tabIndex="-1" {...props}>
-                <PopperWrapper>
-                    {shareMenu.map((item) => (
+            <div tabIndex="-1" {...props}>
+                <PopperWrapper className={cx('share-popper')}>
+                    {formType.contents.map((item) => (
                         <div className={cx('share-wrapper')}>
                             {item.icon}
                             <p className={cx('share-title')}>{item.title}</p>
                         </div>
                     ))}
-                    <button className={cx('down-btn')} onClick={renderShareMoreButton}>
-                        <ArrowDownIcon />
-                    </button>
+                    {formType.showMore && (
+                        <button className={cx('down-btn')} onClick={handleRenderMoreShareMenu}>
+                            <ArrowDownIcon />
+                        </button>
+                    )}
                 </PopperWrapper>
             </div>
         );
@@ -215,6 +257,7 @@ function VideoItem({ data }) {
                                 offset={[80, 0]}
                                 delay={[0, 500]}
                                 render={renderShareButton}
+                                onHide={handleReset}
                             >
                                 <div>
                                     <Button className={cx('react-btn')}>

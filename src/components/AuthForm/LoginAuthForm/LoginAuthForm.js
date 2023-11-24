@@ -25,7 +25,6 @@ const loginList = {
             id: 1,
             icon: <QRIcon />,
             title: 'Sử dụng mã QR',
-            disabled: true,
         },
         {
             id: 2,
@@ -36,37 +35,31 @@ const loginList = {
             id: 3,
             icon: <FacebookLoginIcon />,
             title: 'Tiếp tục với Facebook',
-            disabled: true,
         },
         {
             id: 4,
             icon: <GoogleIcon />,
             title: 'Tiếp tục với Google',
-            disabled: true,
         },
         {
             id: 5,
             icon: <TwitterRegularIcon />,
             title: 'Tiếp tục với Twitter',
-            disabled: true,
         },
         {
             id: 6,
             icon: <LineLoginIcon />,
             title: 'Tiếp tục với LINE',
-            disabled: true,
         },
         {
             id: 7,
             icon: <KakaoTalkIcon />,
             title: 'Tiếp tục với KakaoTalk',
-            disabled: true,
         },
         {
             id: 8,
             icon: <AppleIcon />,
             title: 'Tiếp tục với Apple',
-            disabled: true,
         },
     ],
 };

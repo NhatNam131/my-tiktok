@@ -1,0 +1,125 @@
+.wrapper {
+    position: relative;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: var(--font-family-second);
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
+    color: #999;
+    transform: translateY(-50%);
+}
+
+.loading {
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-input {
+    display: flex;
+    justify-content: space-between;
+    width: 375px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.title-phone {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+
+    &:hover {
+        text-decoration: underline;
+        color: rgba(22, 24, 35, 1);
+    }
+}
+
+.input-data {
+    display: flex;
+    position: relative;
+    height: 44px;
+    width: 375px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+
+    input {
+        flex: 1;
+        padding-inline-start: 12px;
+        background-color: rgba(22, 24, 35, 0.06);
+        font-size: 1rem;
+        color: rgb(22, 24, 35);
+        caret-color: var(--primary);
+    }
+
+    input::placeholder {
+        color: #999; /* Màu chữ nhạt */
+    }
+}
+
+.show-password {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    height: inherit;
+    right: 0;
+    padding-inline-end: 14px;
+    color: #999;
+}
+
+.invalid {
+    display: block;
+    margin-bottom: 4px;
+    line-height: 15px;
+    font-size: 12px;
+    color: var(--primary);
+}
+
+.forgot-password {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+
+    &:hover {
+        text-decoration: underline;
+        color: rgba(22, 24, 35, 1);
+    }
+}
+
+.button-login {
+    margin-top: 18px;
+    width: 100%;
+    height: 46px;
+}

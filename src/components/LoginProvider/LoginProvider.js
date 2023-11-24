@@ -11,6 +11,7 @@ function LoginProvider({ children }) {
     const [isNotify, setIsNotify] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showErrorRegister, setShowErrorRegister] = useState(false);
+
     const contentModal = useContext(ModalContext);
 
     //data random user
