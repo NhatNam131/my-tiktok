@@ -5,7 +5,7 @@
     font-weight: 700;
     font-family: var(--font-family-second);
     font-size: 1.9rem;
-    color: rgb(22, 24, 35);
+    color: var(--text-color-modal);
 }
 
 .list-button {
@@ -22,7 +22,9 @@
     max-width: 377px;
     margin-bottom: 16px;
     height: 44px;
+    color: var(--text-color-modal);
     border: 1px solid rgba(22, 24, 35, 0.12);
+    background-color: var(--background-color-btn-modal);
 
     .icon {
         position: absolute;

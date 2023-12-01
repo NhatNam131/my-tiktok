@@ -21,8 +21,8 @@ function DownloadApp() {
                 hideOnClick={false}
                 placement="bottom"
                 render={(attrs) => (
-                    <div className={cx('download-wrapper')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper>
+                    <div tabIndex="-1" {...attrs}>
+                        <PopperWrapper className={cx('download-wrapper')}>
                             <FontAwesomeIcon className={cx('download-image')} icon={faLaptop} />
                             <p className={cx('download-content')}>Ứng dụng TikTok cho máy tính</p>
                             <Button className={cx('download-btn')} primary>

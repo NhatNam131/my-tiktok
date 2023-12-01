@@ -11,7 +11,7 @@
     font-size: 1rem;
     font-weight: 600;
     line-height: 25px;
-    background-color: var(--white);
+    background-color: var(--text-color-white);
 
     // + .wrapper {
     //     margin-left: 16px;
@@ -32,15 +32,17 @@
 .text {
     min-width: 110px;
     border-color: rgba(22, 24, 35, 0.12);
+    background-color: var(--background-btn-text);
+    color: var(--text-color-btn-text);
 
     &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
+        background-color: var(--background-hover-btn-text);
     }
 }
 
 .primary {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--text-color-white);
 
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
@@ -50,8 +52,9 @@
 .outline {
     color: var(--primary);
     border-color: currentColor;
+    background-color: var(--background-btn-outline);
 
     &:hover {
-        background-color: rgba(254, 44, 85, 0.08);
+        background-color: var(--background-hover-btn-outline);
     }
 }

@@ -5,16 +5,19 @@ import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyle';
 import ModalProvider from './components/ModalProvider';
 import LoginProvider from './components/LoginProvider';
+import ThemeProvider from './components/Theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <GlobalStyles>
-            <ModalProvider>
-                <LoginProvider>
-                    <App />
-                </LoginProvider>
-            </ModalProvider>
+            <ThemeProvider>
+                <ModalProvider>
+                    <LoginProvider>
+                        <App />
+                    </LoginProvider>
+                </ModalProvider>
+            </ThemeProvider>
         </GlobalStyles>
     </React.StrictMode>,
 );

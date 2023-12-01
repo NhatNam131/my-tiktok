@@ -5,7 +5,7 @@
     cursor: pointer;
 
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background: var(--background-color-search-popup-hover);
     }
 }
 .avatar {
@@ -22,10 +22,11 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 0.5;
+    margin-bottom: 5px;
 }
 .username {
     font-size: 1rem;
-    color: rgba(22, 24, 35, 0.5);
+    color: var(--text-color-username-popup);
 }
 
 .check {

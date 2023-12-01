@@ -9,12 +9,14 @@ import { ModalContext } from '~/components/ModalProvider';
 import { LoginContext } from '~/components/LoginProvider';
 import { logout } from '~/services/loginService';
 import { CloseIcon } from '~/components/Icons';
+import { ThemeContext } from '~/components/Theme';
 
 const cx = classNames.bind(styles);
 
 function LogOutPopup() {
     const contextModal = useContext(ModalContext);
     const contextLogin = useContext(LoginContext);
+    const contextTheme = useContext(ThemeContext);
 
     const [loading, setLoading] = useState(false);
 
@@ -44,9 +46,15 @@ function LogOutPopup() {
                     <Button text className={cx('cancel-btn')} onClick={contextModal.handleHideModalLogOut}>
                         Huỷ
                     </Button>
-                    <Button primary className={cx('allow-btn')} onClick={fetchApi}>
-                        Đăng xuất
-                    </Button>
+                    {contextTheme.isDark ? (
+                        <Button outline className={cx('allow-btn')} onClick={fetchApi}>
+                            Đăng xuất
+                        </Button>
+                    ) : (
+                        <Button primary className={cx('allow-btn')} onClick={fetchApi}>
+                            Đăng xuất
+                        </Button>
+                    )}
                 </div>
             </div>
         </div>
