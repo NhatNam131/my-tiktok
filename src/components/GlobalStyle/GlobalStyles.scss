@@ -1,17 +1,125 @@
 @import 'normalize.css';
 
 :root {
-    --primary: rgba(254, 44, 85, 1);
-    --search: rgba(22, 24, 35, 1);
-    --text-color-black: rgba(22, 24, 35, 1);
-    --white: rgba(255, 255, 255, 1);
-
-    //Default layout
+    // Default layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1528px;
+    --primary: rgba(254, 44, 85, 1);
+    --body-background-color: rgb(255, 255, 255);
+    --color-scrollbar: rgba(22, 24, 35, 0.06);
 
-    //Font
+    // Font
     --font-family: 'IBM Plex Sans', Arial, Tahoma, sans-serif;
+
+    // Text
+    --text-color: rgba(22, 24, 35, 1);
+    --text-color-preview-account: rgba(22, 24, 35, 1);
+    --text-color-white: rgba(255, 255, 255, 1);
+    --text-color-gray: rgba(22, 24, 35, 0.5);
+
+    // Header
+    --search-input-background: rgba(22, 24, 35, 0.06);
+    --search-btn-background: transparent;
+    --search-btn-background-hover: rgba(22, 24, 35, 0.06);
+    --search-color-btn: rgba(22, 24, 35, 0.34);
+    --search-color-btn-hover: rgba(22, 24, 35, 0.9);
+    --color-icon-header: rgba(22, 24, 35, 1);
+    --text-color-title-search-popup: rgba(22, 24, 35, 0.5);
+    --background-color-search-popup-hover: rgba(22, 24, 35, 0.03);
+    --text-color-username-popup: rgba(22, 24, 35, 0.5);
+
+    // Sidebar
+    --color-label: rgb(22, 24, 35, 0.6);
+    --color-nickname: rgba(22, 24, 35, 0.75);
+    --color-border-top: rgba(22, 24, 35, 0.1);
+    --color-border-bottom: rgba(22, 24, 35, 0.2);
+    --text-color-more-btn-sidebar: rgba(22, 24, 35, 1);
+    --text-color-btn-effect: rgba(22, 24, 35, 1);
+    --background-color-hover-item: rgba(22, 24, 35, 0.06);
+    --color-text-sidebar-login: rgba(22, 24, 35, 0.5);
+
+    // Button and video
+    --background-btn-outline: rgba(255, 59, 92, 0);
+    --background-btn-text: rgba(255, 255, 255, 1);
+    --background-hover-btn-outline: rgba(254, 44, 85, 0.08);
+    --background-hover-btn-text: rgba(22, 24, 35, 0.03);
+    --background-color-react-btn: rgba(22, 24, 35, 0.06);
+    --color-react-btn-video: rgb(22, 24, 35);
+    --color-down-arrow-btn: rgb(22, 24, 35);
+    --color-down-arrow-btn-hover: rgba(22, 24, 35, 0.06);
+
+    // Popup
+    --text-color-popup: rgb(22, 24, 35);
+    --background-color-popup: rgb(255, 255, 255);
+    --background-color-popup-hover: rgba(22, 24, 35, 0.03);
+
+    // Modal
+    --background-color-policy-popup: rgb(255, 255, 255);
+    --text-color-policy: rgba(22, 24, 35, 0.5);
+    --text-color-title: rgb(22, 24, 35);
+    --background-color-btn-modal: rgb(255, 255, 255);
+    --background-color-close-btn-modal: rgba(22, 24, 35, 0.03);
+    --text-color-form: rgba(22, 24, 35, 1);
+    --background-color-input-form: rgba(22, 24, 35, 0.06);
+    --background-color-logout: rgb(255, 255, 255);
+    --background-color-close-logout: rgb(255, 255, 255);
+}
+
+[data-theme='dark'] {
+    --body-background-color: rgb(18, 18, 18);
+    --color-scrollbar: rgba(255, 255, 255, 0.08);
+
+    // Text
+    --text-color: rgba(255, 255, 255, 1);
+    --text-color-gray: rgba(255, 255, 255, 0.5);
+
+    // Header
+    --search-input-background: rgba(255, 255, 255, 0.12);
+    --search-btn-background: rgba(22, 24, 35, 0.06);
+    --search-btn-background-hover: rgba(255, 255, 255, 0.12);
+    --search-color-btn: rgba(255, 255, 255, 0.9);
+    --search-color-btn-hover: rgba(255, 255, 255, 0.9);
+    --color-icon-header: rgba(255, 255, 255, 0.9);
+    --text-color-title-search-popup: rgba(255, 255, 255, 0.5);
+    --background-color-search-popup-hover: rgba(255, 255, 255, 0.08);
+    --text-color-username-popup: rgba(255, 255, 255, 0.5);
+
+    // Sidebar
+    --color-label: rgba(255, 255, 255, 0.9);
+    --color-nickname: rgba(255, 255, 255, 0.75);
+    --color-border-top: rgba(255, 255, 255, 0.12);
+    --color-border-bottom: rgba(255, 255, 255, 0.2);
+    --text-color-more-btn-sidebar: rgba(255, 255, 255, 0.5);
+    --text-color-btn-effect: rgba(22, 24, 35, 1);
+    --background-color-hover-item: rgba(255, 255, 255, 0.04);
+    --color-text-sidebar-login: rgba(255, 255, 255, 0.9);
+
+    // Button and video
+    --background-btn-outline: rgba(255, 59, 92, 0);
+    --background-btn-text: rgba(255, 255, 255, 0.08);
+    --text-color-btn-text: rgba(255, 255, 255, 0.9);
+    --background-hover-btn-outline: rgba(255, 59, 92, 0.08);
+    --background-hover-btn-text: rgba(255, 255, 255, 0.04);
+    --background-color-react-btn: rgba(255, 255, 255, 0.12);
+    --color-react-btn-video: rgba(255, 255, 255, 0.9);
+    --color-down-arrow-btn: rgba(255, 255, 255, 1);
+    --color-down-arrow-btn-hover: rgba(255, 255, 255, 0.08);
+
+    // Popup
+    --text-color-popup: rgba(255, 255, 255, 0.9);
+    --background-color-popup: rgb(37, 37, 37);
+    --background-color-popup-hover: rgba(255, 255, 255, 0.04);
+
+    // Modal
+    --background-color-policy-popup: rgb(18, 18, 18);
+    --text-color-policy: rgba(255, 255, 255, 0.5);
+    --text-color-modal: rgba(255, 255, 255, 0.9);
+    --background-color-btn-modal: rgb(46, 46, 46);
+    --background-color-close-btn-modal: rgba(255, 255, 255, 0.04);
+    --text-color-form: rgba(255, 255, 255, 0.75);
+    --background-color-input-form: rgba(255, 255, 255, 0.12);
+    --background-color-logout: rgb(37, 37, 37);
+    --background-color-close-logout: rgba(22, 24, 35, 0.03);
 }
 
 * {
@@ -30,6 +138,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    background-color: var(--body-background-color);
     color: var(--text-color);
     overflow-y: overlay;
 }
@@ -41,7 +150,7 @@ html *::-webkit-scrollbar {
 
 html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: rgba(22, 24, 35, 0.06);
+    background-color: var(--color-scrollbar);
 }
 
 html *::-webkit-scrollbar-track {
@@ -84,7 +193,7 @@ a {
 body {
     .tippy-box {
         background-color: rgba(84, 84, 84, 0.92);
-        color: rgb(255, 255, 255);
+        color: var(--text-color-white);
         border-radius: 8px;
         line-height: 15px;
         padding: 6px;

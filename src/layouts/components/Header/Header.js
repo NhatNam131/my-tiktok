@@ -24,6 +24,7 @@ import Search from '../Search';
 import DownloadApp from '~/components/Popper/Model/Download/DownloadApp';
 import { ModalContext } from '~/components/ModalProvider';
 import { LoginContext } from '~/components/LoginProvider';
+import { ThemeContext } from '~/components/Theme';
 
 const cx = classNames.bind(styles);
 
@@ -51,57 +52,57 @@ const MENU_ITEM = [
                 {
                     type: 'language',
                     code: 'zh',
-                    title: 'Trung Quốc',
+                    title: '中国',
                 },
                 {
                     type: 'language',
                     code: 'ja',
-                    title: 'Nhật Bản',
+                    title: '日本',
                 },
                 {
                     type: 'language',
                     code: 'ko',
-                    title: 'Hàn Quốc',
+                    title: '한국어',
                 },
                 {
                     type: 'language',
                     code: 'lo',
-                    title: 'Lào',
+                    title: 'ລາວ',
                 },
                 {
                     type: 'language',
                     code: 'la',
-                    title: 'Latin',
+                    title: 'lingua latīna',
                 },
                 {
                     type: 'language',
                     code: 'pt',
-                    title: 'Bồ Đào Nha',
+                    title: 'Portugal',
                 },
                 {
                     type: 'language',
                     code: 'es',
-                    title: 'Tây Ban Nha',
+                    title: 'España',
                 },
                 {
                     type: 'language',
                     code: 'sv',
-                    title: 'Thuỵ Điển',
+                    title: 'Sverige',
                 },
                 {
                     type: 'language',
                     code: 'th',
-                    title: 'Thái Lan',
+                    title: 'ประเทศไทย',
                 },
                 {
                     type: 'language',
                     code: 'tr',
-                    title: 'Thổ Nhĩ Kỳ',
+                    title: 'Türkiye',
                 },
                 {
                     type: 'language',
                     code: 'ru',
-                    title: 'Nga',
+                    title: 'Россия',
                 },
             ],
         },
@@ -124,6 +125,7 @@ const MENU_ITEM = [
 function Header() {
     const contextModal = useContext(ModalContext);
     const contextLogin = useContext(LoginContext);
+    const contextTheme = useContext(ThemeContext);
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -158,7 +160,11 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <Link to={config.routes.home} className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    {contextTheme.isDark ? (
+                        <img src={images.logodark} alt="Tiktok" />
+                    ) : (
+                        <img src={images.logo} alt="Tiktok" />
+                    )}
                 </Link>
                 <Search />
                 <div className={cx('actions')}>
@@ -191,19 +197,22 @@ function Header() {
                             <DownloadApp />
                         </>
                     )}
-                    <Menu items={!contextLogin.data ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
-                        {contextLogin.data ? (
+                    {contextLogin.data && (
+                        <Menu items={userMenu} onChange={handleMenuChange}>
                             <Image
                                 className={cx('user-avatar')}
                                 src={contextLogin.data.avatar}
                                 alt={contextLogin.data.nickname}
                             />
-                        ) : (
+                        </Menu>
+                    )}
+                    {!contextLogin.data && (
+                        <Menu items={MENU_ITEM} onChange={handleMenuChange}>
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
                             </button>
-                        )}
-                    </Menu>
+                        </Menu>
+                    )}
                 </div>
             </div>
         </header>

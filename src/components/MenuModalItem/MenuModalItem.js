@@ -39,8 +39,8 @@ function MenuModalItem() {
                     </div>
 
                     <div className={cx('keep-stable')}>
-                        <div className={cx('policy')}>
-                            {context.typeForm === 'login' && (
+                        <span className={cx('policy')}>
+                            {context.typeForm === 'loginform' ? null : (
                                 <p>
                                     Bằng cách tiếp tục, bạn đồng ý với{' '}
                                     <a
@@ -59,45 +59,7 @@ function MenuModalItem() {
                                     của TikTok.
                                 </p>
                             )}
-                            {context.typeForm === 'register' && (
-                                <p>
-                                    Bằng cách tiếp tục, bạn đồng ý với{' '}
-                                    <a
-                                        className={cx('login-link')}
-                                        href="https://www.tiktok.com/legal/terms-of-use?lang=en"
-                                    >
-                                        Điều khoản Sử dụng{' '}
-                                    </a>
-                                    của TikTok <br /> và xác nhận rằng bạn đã đọc hiểu{' '}
-                                    <a
-                                        className={cx('login-link')}
-                                        href="https://www.tiktok.com/legal/privacy-policy?lang=en"
-                                    >
-                                        Chính sách quyền riêng tư{' '}
-                                    </a>
-                                    của TikTok.
-                                </p>
-                            )}
-                            {context.typeForm === 'registerform' && (
-                                <p>
-                                    Bằng cách tiếp tục, bạn đồng ý với{' '}
-                                    <a
-                                        className={cx('login-link')}
-                                        href="https://www.tiktok.com/legal/terms-of-use?lang=en"
-                                    >
-                                        Điều khoản Sử dụng{' '}
-                                    </a>
-                                    của TikTok <br /> và xác nhận rằng bạn đã đọc hiểu{' '}
-                                    <a
-                                        className={cx('login-link')}
-                                        href="https://www.tiktok.com/legal/privacy-policy?lang=en"
-                                    >
-                                        Chính sách quyền riêng tư{' '}
-                                    </a>
-                                    của TikTok.
-                                </p>
-                            )}
-                        </div>
+                        </span>
                         {context.typeForm === 'login' || context.typeForm === 'loginform' ? (
                             <div className={cx('footer')}>
                                 <p>Bạn không có tài khoản?</p>

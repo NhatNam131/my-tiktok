@@ -20,7 +20,7 @@
     left: 45%;
     width: 10%;
     height: 10%;
-    color: #999;
+    color: var(--text-color-form);
     transform: translateY(-50%);
 }
 
@@ -57,11 +57,10 @@
     display: inline-block;
     font-weight: 600;
     font-size: 12px;
-    color: rgba(22, 24, 35, 0.75);
+    color: var(--text-color-form);
 
     &:hover {
         text-decoration: underline;
-        color: rgba(22, 24, 35, 1);
     }
 }
 
@@ -77,9 +76,9 @@
     input {
         flex: 1;
         padding-inline-start: 12px;
-        background-color: rgba(22, 24, 35, 0.06);
+        background-color: var(--background-color-input-form);
         font-size: 1rem;
-        color: rgb(22, 24, 35);
+        color: var(--text-color-form);
         caret-color: var(--primary);
     }
 
@@ -104,18 +103,6 @@
     line-height: 15px;
     font-size: 12px;
     color: var(--primary);
-}
-
-.forgot-password {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 12px;
-    color: rgba(22, 24, 35, 0.75);
-
-    &:hover {
-        text-decoration: underline;
-        color: rgba(22, 24, 35, 1);
-    }
 }
 
 .button-login {

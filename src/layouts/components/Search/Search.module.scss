@@ -3,8 +3,6 @@
     --search-height: 48px;
     --search-top-spacer: 9px;
     --search-button-width: 52px;
-
-    --search-button-color-hover: rgba(22, 24, 35, 0.9);
 }
 
 .search,
@@ -12,12 +10,16 @@
     width: 500px;
 }
 
+.search-popup {
+    background-color: var(--background-color-popup);
+}
+
 .search {
     position: relative;
     display: flex;
     height: var(--search-height);
     padding-left: 16px;
-    background-color: rgba(22, 24, 35, 0.06);
+    background-color: var(--search-input-background);
     border: 1.5px solid transparent;
     border-radius: var(--search-border-radius);
 
@@ -34,7 +36,7 @@
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
-        background-color: rgba(22, 24, 35, 0.05);
+        background-color: var(--search-input-background);
         color: var(--search-button-color-hover);
     }
 
@@ -45,7 +47,7 @@
         right: var(--search-button-width);
         width: 1px;
         height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        background-color: rgba(22, 24, 35, 0.06);
+        background-color: var(--search-input-background);
     }
 
     &:hover {
@@ -61,7 +63,7 @@
     padding: 5px 12px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: rgba(22, 24, 35, 0.5);
+    color: var(--text-color-title-search-popup);
 }
 
 .clear,
@@ -70,7 +72,8 @@
     right: calc(var(--search-button-width) + 16px);
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
+    color: var(--text-color-gray);
+    background-color: transparent;
 }
 
 .loading {
@@ -92,16 +95,17 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: rgba(22, 24, 35, 0.34);
+    color: var(--search-color-btn);
     border-top-right-radius: var(--search-border-radius);
     border-bottom-right-radius: var(--search-border-radius);
+    background-color: var(--search-btn-background);
 
     &:hover {
-        background-color: rgba(22, 24, 35, 0.05);
-        color: var(--search-button-color-hover);
+        background-color: var(--search-btn-background-hover);
+        color: var(--search-color-btn-hover);
     }
 
     &:active {
-        background-color: rgba(22, 24, 35, 0.06);
+        background-color: var(--search-btn-background);
     }
 }

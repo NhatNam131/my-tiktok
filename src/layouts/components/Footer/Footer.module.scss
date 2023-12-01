@@ -9,12 +9,13 @@
     margin-top: 15px;
     margin-bottom: 5px;
     font-size: 0.75rem;
-    color: rgba(22, 24, 35, 0.5);
+    color: var(--text-color-gray);
     font-weight: 600;
 }
 
 .content a {
     margin-right: 15px;
+    color: var(--text-color-gray);
 
     &:hover {
         text-decoration: underline;
@@ -26,7 +27,7 @@
     font-weight: 600;
     font-size: 0.8rem;
     border: none;
-    color: rgba(22, 24, 35, 0.5);
+    color: var(--text-color-gray);
     margin: 15px 0 0 0;
 }
 
@@ -41,6 +42,7 @@
     padding: 10px 20px;
     font-size: 0.95rem;
     font-weight: 600;
+    color: var(--text-color-more-btn-sidebar);
 
     &:hover {
         color: var(--primary);

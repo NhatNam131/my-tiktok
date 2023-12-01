@@ -1,6 +1,7 @@
 .wrapper {
     width: 320px;
     padding: 20px;
+    color: var(--text-color-preview-account);
 }
 
 .header {
@@ -31,6 +32,7 @@
 .nickname {
     font-size: 1rem;
     line-height: 18px;
+    color: var(--text-color);
 }
 
 .check {
@@ -41,6 +43,7 @@
 
 .name {
     font-size: 0.8rem;
+    color: var(--text-color);
 }
 
 .analytics {
@@ -48,10 +51,16 @@
     margin-top: 10px;
 }
 
+.value {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
 .value ~ .value {
     margin-left: 20px;
 }
 
 .label {
-    color: rgba(22, 24, 35, 1);
+    font-weight: 400;
+    color: var(--text-color);
 }

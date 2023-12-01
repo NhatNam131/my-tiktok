@@ -21,13 +21,15 @@
     justify-content: flex-start;
     border-radius: 0;
     line-height: 1.8rem;
+    color: var(--text-color-popup);
+    background-color: var(--background-color-popup);
 
     &.seperate {
         border-top: 1px solid rgba(22, 24, 35, 0.12);
     }
 
     &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
+        background-color: var(--background-color-popup-hover);
     }
 }
 
@@ -41,6 +43,7 @@
 .back-btn {
     width: 50px;
     height: 100%;
+    color: var(--text-color);
     background-color: transparent;
     cursor: pointer;
 }
@@ -51,4 +54,50 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.item-wrapper {
+    position: relative;
+}
+
+.checkbox-btn {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+
+#check {
+    display: none;
+}
+
+.dark-mode {
+    cursor: pointer;
+    position: absolute;
+    width: 44px;
+    height: 24px;
+    border-radius: 100px;
+    background: rgba(22, 24, 35, 0.12);
+}
+
+.dark-mode::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 3.5px;
+    border-radius: 200px;
+    transform: translateY(-50%);
+    transition: all 0.25s ease-out;
+    background-color: rgb(255, 255, 255);
+}
+
+#check:checked + .dark-mode {
+    width: 45px;
+    height: 25px;
+    background: rgb(11, 224, 155);
+}
+
+#check:checked + .dark-mode::before {
+    transform: translate(19px, -50%);
 }
