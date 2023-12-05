@@ -10,16 +10,28 @@ const cx = classNames.bind(styles);
 
 function Home() {
     const [videoForYou, setVideoForYou] = useState([]);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         videoService
-            .getVideoForYou({ type: 'for-you', page: 1 })
+            .getVideoForYou({ type: 'for-you', page })
             .then((data) => {
-                setVideoForYou(data);
+                setVideoForYou((prev) => [...prev, ...data]);
             })
             .catch((error) => {
                 console.log(error);
             });
+    }, [page]);
+
+    function handleScroll() {
+        if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+            setPage((page) => page + 1);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (

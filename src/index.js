@@ -6,6 +6,7 @@ import GlobalStyles from '~/components/GlobalStyle';
 import ModalProvider from './components/ModalProvider';
 import LoginProvider from './components/LoginProvider';
 import ThemeProvider from './components/Theme';
+import VideoProvider from './components/VideoItem/CustomVideo/VideoProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,9 @@ root.render(
             <ThemeProvider>
                 <ModalProvider>
                     <LoginProvider>
-                        <App />
+                        <VideoProvider>
+                            <App />
+                        </VideoProvider>
                     </LoginProvider>
                 </ModalProvider>
             </ThemeProvider>
