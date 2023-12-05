@@ -1,1 +1,1 @@
-export { default } from './UseImperativeHandle';
+export { default, VideoContext } from './VideoProvider';

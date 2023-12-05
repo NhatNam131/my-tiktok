@@ -4,7 +4,7 @@
     position: relative;
     margin: 0 auto;
     flex-direction: row;
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid var(--color-border-bottom);
 }
 
@@ -59,16 +59,16 @@
 }
 
 .public-time {
-    margin-top: 8px;
-    text-align: center;
     cursor: context-menu;
+    text-align: center;
+    margin-top: 8px;
     font-size: 0.9rem;
 }
 
 .follow-btn {
+    position: absolute;
     min-width: 96px;
     height: 36px;
-    position: absolute;
     top: 28px;
     right: 0;
 }
@@ -108,13 +108,196 @@
     flex-direction: row;
 }
 
+.video-card {
+    cursor: pointer;
+    width: var(--width-default-video);
+    height: var(--height-default-video);
+    margin-bottom: 20px;
+    margin-top: 10px;
+    top: 0;
+    &:hover {
+        .play-pause,
+        .volume-icon {
+            opacity: 1;
+        }
+        .time-video {
+            display: flex;
+        }
+    }
+
+    video {
+        position: relative;
+        width: 330px;
+        height: 600px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}
+
+.controls {
+    position: relative;
+}
+
+.play-pause {
+    position: absolute;
+    bottom: 22px;
+    left: 8px;
+    padding: 12px;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.controls-volume {
+    position: absolute;
+    right: 16px;
+    bottom: 50px;
+    &:hover {
+        .change-volume {
+            display: flex;
+        }
+    }
+}
+
+.sound-mute {
+    position: absolute;
+    bottom: -16px;
+    right: 4px;
+}
+
+.change-volume {
+    cursor: initial;
+    display: none;
+    position: relative;
+    width: 24px;
+    height: 64px;
+    bottom: 20px;
+    right: 6px;
+    background: var(--background-color-volumn-btn-video);
+    border-radius: 32px;
+
+    input {
+        appearance: none;
+        position: absolute;
+        height: 2px;
+        width: 46px;
+        right: -10px;
+        bottom: 30px;
+        border-radius: 4px;
+        background-color: var(--background-color-change-volumn-btn-video);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        caret-color: transparent;
+
+        &::-webkit-slider-thumb {
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            -webkit-appearance: none;
+        }
+    }
+}
+
+.time-video {
+    cursor: initial;
+    display: none;
+    position: absolute;
+    width: 75%;
+    height: 16px;
+    left: 184px;
+    bottom: 20px;
+    margin-left: 32px;
+    padding-inline: 12px;
+
+    &:hover {
+        .range-progess,
+        input {
+            height: 4px;
+            &::-webkit-slider-thumb {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.control-time {
+    .range {
+        cursor: pointer;
+        position: absolute;
+        appearance: none;
+        height: 2px;
+        width: 100%;
+        right: 80%;
+        top: 50%;
+        background: rgba(255, 255, 255, 0.34);
+        transform: translateY(-50%);
+        caret-color: transparent;
+
+        &::-webkit-slider-thumb {
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            appearance: none;
+            background-color: var(--text-color-white);
+            opacity: 0;
+        }
+    }
+}
+
+.range-progess {
+    position: absolute;
+    right: 80%;
+    top: 44%;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-color-white);
+    transform: translateY(-50%);
+
+    transform-origin: left center;
+    // transform: scaleX(1) translateY(-50%);
+}
+
+.timeon {
+    cursor: pointer;
+    flex: 0 0 68px;
+    margin-left: 18px;
+    text-align: end;
+    line-height: 16px;
+    color: var(--text-color-white);
+    white-space: nowrap;
+    font-size: 10px;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+    font-family: Tahoma;
+}
+
+.mute-icon {
+    opacity: 1;
+}
+.volume-icon {
+    opacity: 0;
+    transition: 0.2s;
+}
+
+button {
+    background-color: transparent;
+}
+
+// Thẻ dùng setRef autoplay video
+.autoplay-video-ref {
+    margin-bottom: 20px;
+}
+
 .interact-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     margin-left: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 26px;
 }
 
 .react-btn {
@@ -128,10 +311,10 @@
 }
 
 .share-popper {
-    overflow-y: auto;
     max-height: 350px;
     height: 100%;
     padding: 4px 0;
+    overflow-y: auto;
 
     &::-webkit-scrollbar {
         width: 7px;

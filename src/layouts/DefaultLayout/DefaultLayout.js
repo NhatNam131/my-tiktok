@@ -35,10 +35,10 @@ function DefaultLayout({ children, data }) {
     return (
         <div className={cx('wrapper')}>
             <Header />
-            {/* {contextModal.isLogout && <span className={cx('notify')}>Đăng xuất thành công</span>}
-            {contextLogin.isNotify && <span className={cx('notify')}>Đăng nhập thành công</span>} */}
+            {contextModal.isLogout && <span className={cx('notify')}>Đăng xuất thành công</span>}
+            {contextLogin.isNotify && <span className={cx('notify')}>Đăng nhập thành công</span>}
             <div className={cx('container')}>
-                <Sidebar />
+                <Sidebar data={data} />
                 <div className={cx('content')}>{children}</div>
             </div>
             {contextModal.activeLogOut && <LogOutPopup />}

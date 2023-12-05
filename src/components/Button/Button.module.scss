@@ -12,6 +12,10 @@
     font-weight: 600;
     line-height: 25px;
     background-color: var(--text-color-white);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     // + .wrapper {
     //     margin-left: 16px;
