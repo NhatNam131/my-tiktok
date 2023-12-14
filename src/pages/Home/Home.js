@@ -13,14 +13,12 @@ function Home() {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        videoService
-            .getVideoForYou({ type: 'for-you', page })
-            .then((data) => {
-                setVideoForYou((prev) => [...prev, ...data]);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        const fetchApi = async () => {
+            const result = await videoService.getVideoForYou('for-you', page);
+            setVideoForYou((prev) => [...prev, ...result]);
+        };
+
+        fetchApi();
     }, [page]);
 
     function handleScroll() {
@@ -36,7 +34,7 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
-            <VideoList data={videoForYou.sort(() => 0.5 - Math.random())} />
+            <VideoList data={videoForYou} />
             <ButtonScrollToTop />
         </div>
     );

@@ -120,6 +120,8 @@
         .volume-icon {
             opacity: 1;
         }
+        .more-btn,
+        .video-text,
         .time-video {
             display: flex;
         }
@@ -138,6 +140,51 @@
     position: relative;
 }
 
+.more-btn {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: -600px;
+    right: 16px;
+    background-color: transparent;
+}
+
+.more-video-btn {
+    font-size: 1.5rem;
+    color: var(--text-color-white);
+    background-color: transparent;
+}
+
+.more-popper {
+    width: 200px;
+    height: 100px;
+    padding: 8px 0;
+    background-color: var(--background-color-popup);
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+}
+
+.more-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 11px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color-black);
+
+    &:hover {
+        background-color: var(--color-down-arrow-btn-hover);
+    }
+}
+
+.more-title {
+    margin: 0 8px;
+}
+
 .play-pause {
     position: absolute;
     bottom: 22px;
@@ -145,6 +192,16 @@
     padding: 12px;
     opacity: 0;
     transition: 0.2s;
+}
+
+.video-text {
+    display: none;
+    position: absolute;
+    bottom: 44px;
+    left: 52px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-color-video-item);
 }
 
 .controls-volume {
@@ -160,8 +217,8 @@
 
 .sound-mute {
     position: absolute;
-    bottom: -16px;
-    right: 4px;
+    bottom: -26px;
+    right: 0px;
 }
 
 .change-volume {
