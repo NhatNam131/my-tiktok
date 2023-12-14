@@ -1,7 +1,17 @@
 import { useState, useContext, useMemo, useRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark, faCheckCircle, faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBookmark,
+    faCheckCircle,
+    faCommentDots,
+    faHeart,
+    faHeartCrack,
+    faEllipsis,
+    faMusic,
+    faShare,
+} from '@fortawesome/free-solid-svg-icons';
+import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -33,10 +43,11 @@ import {
 } from '../Icons';
 import { LoginContext } from '../LoginProvider';
 import { ModalContext } from '../ModalProvider';
+import { DetailVideoContext } from './DetailVideoProvider/DetailVideoProvider';
 
 const cx = classNames.bind(styles);
 
-function VideoItem({ data, children }) {
+function VideoItem({ data, idVideo, uuidVideo, children }) {
     require('moment/locale/vi');
     const videoRef = useRef();
     const myRef = useRef();
@@ -44,6 +55,7 @@ function VideoItem({ data, children }) {
     const contextModal = useContext(ModalContext);
     const contextLogin = useContext(LoginContext);
     const contextVideo = useContext(VideoContext);
+    const contextDetail = useContext(DetailVideoContext);
 
     const [isPlaying, setIsPlaying] = useState(true);
     const [currentTime, setCurrentTime] = useState(0);
@@ -112,7 +124,6 @@ function VideoItem({ data, children }) {
 
     const handlePLayVideo = () => {
         videoRef.current.play();
-        console.log(videoRef.current.play());
     };
 
     const handlePauseVideo = () => {
@@ -137,6 +148,19 @@ function VideoItem({ data, children }) {
     const handleVolumeChange = (e) => {
         videoRef.current.volume = e.target.value;
     };
+
+    const moreVideo = [
+        {
+            icon: <FontAwesomeIcon icon={faHeartCrack} />,
+            title: 'Không quan tâm',
+            to: '',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faFlag} />,
+            title: 'Báo cáo',
+            to: '',
+        },
+    ];
 
     const shareMenu = useMemo(
         () => [
@@ -238,6 +262,21 @@ function VideoItem({ data, children }) {
 
     const [formType, setFormType] = useState(shareMenu[0]);
 
+    const handleRenderMoreVideo = (props) => {
+        return (
+            <div tabIndex="-1" {...props}>
+                <PopperWrapper className={cx('more-popper')}>
+                    {moreVideo.map((item) => (
+                        <div className={cx('more-wrapper')}>
+                            {item.icon}
+                            <p className={cx('more-title')}>{item.title}</p>
+                        </div>
+                    ))}
+                </PopperWrapper>
+            </div>
+        );
+    };
+
     const renderAccountPreview = (props) => {
         return (
             <div tabIndex="-1" {...props}>
@@ -328,18 +367,40 @@ function VideoItem({ data, children }) {
                     <p className={cx('music-title')}>{data.music}</p>
                 </div>
                 <div className={cx('content')}>
-                    <div ref={myRef} className={cx('video-card')}>
+                    <div className={cx('video-card')}>
                         <video
-                            onClick={() => {}}
+                            onClick={() => {
+                                contextDetail.handleShowDetail();
+                                contextDetail.handleSetLink(children);
+                                contextDetail.setIdVideoCurrent(idVideo);
+                                handlePauseVideo();
+                                contextDetail.setUiidVideo(uuidVideo);
+                            }}
                             onTimeUpdate={handleTimeUpdate}
                             ref={videoRef}
                             src={children}
                             onEnded={handleVideoEnded}
                         ></video>
                         <div className={cx('controls')}>
+                            <div className={cx('more-btn')}>
+                                <HeadlessTippy
+                                    interactive
+                                    placement="right"
+                                    offset={[24, 30]}
+                                    delay={[0, 1000]}
+                                    render={handleRenderMoreVideo}
+                                >
+                                    <div>
+                                        <Button className={cx('more-video-btn')}>
+                                            <FontAwesomeIcon icon={faEllipsis} />
+                                        </Button>
+                                    </div>
+                                </HeadlessTippy>
+                            </div>
                             <div className={cx('play-pause')} onClick={toggleVideo}>
                                 {isPlaying ? <PLayIcon /> : <PauseIcon />}
                             </div>
+                            <span className={cx('video-text')}>Nhấp để mở rộng chế độ xem</span>
                             <div className={cx('controls-volume')}>
                                 <div className={cx('change-volume')}>
                                     <input
@@ -400,6 +461,7 @@ function VideoItem({ data, children }) {
                         </div>
                     </div>
                     <div className={cx('interact-btn')}>
+                        <div ref={myRef} className={cx('autoplay-video-ref')}></div>
                         {/* Like button */}
                         <Button className={cx('react-btn')}>
                             <FontAwesomeIcon icon={faHeart} />

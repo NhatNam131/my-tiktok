@@ -1,0 +1,82 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 496px;
+    height: 139px;
+    max-height: 160px;
+    padding: 16px;
+    margin: 20px;
+    border-radius: 12px;
+    background-color: var(--background-color-info-header);
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.avatar {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color-avatar);
+    border-radius: 50%;
+}
+
+.name-header {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+
+.nickname {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 24px;
+}
+
+.fullname {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9rem;
+    line-height: 18px;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 21px;
+    color: var(--text-color);
+}
+
+.music-icon {
+    font-size: 0.8rem;
+    line-height: 18px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.button-follow {
+    width: 96px;
+    height: 36px;
+}
+
+.button-following {
+    width: 123.76;
+    height: 38px;
+}

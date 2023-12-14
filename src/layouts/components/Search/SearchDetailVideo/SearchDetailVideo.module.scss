@@ -1,0 +1,97 @@
+.wrapper {
+    --search-border-radius: 92px;
+    --search-height: 48px;
+    --search-top-spacer: 9px;
+    --search-button-width: 52px;
+}
+
+.search,
+.search-result {
+    width: 382.89px;
+}
+
+.search-popup {
+    background-color: var(--background-color-popup-search-video-detail);
+}
+
+.search {
+    position: relative;
+    display: flex;
+    height: var(--search-height);
+    padding-left: 16px;
+    background-color: transparent;
+    border: 1.5px solid var(--text-color-search-video-detail);
+    border-radius: var(--search-border-radius);
+
+    input {
+        flex: 1px;
+        height: 100%;
+        font-size: 1rem;
+        padding-right: 40px;
+        color: var(--search);
+        border: none;
+        outline: none;
+        background-color: transparent;
+        caret-color: var(--primary);
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: var(--search-button-color-hover);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: var(--search-button-width);
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.search-title {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color-title-search-popup);
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--search-button-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color-search-video-detail);
+    background-color: transparent;
+}
+
+.loading {
+    animation: spinner 0.5s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.search-btn {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-color-search-video-detail);
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    background-color: var(--search-btn-background);
+
+    &:hover {
+        background-color: var(--search-btn-background-hover);
+    }
+}
